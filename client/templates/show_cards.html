@@ -1,0 +1,23 @@
+<template name="showCards">
+    <div class="card">
+        <div class="card-content">
+            <p class="front">{{cards.front}}</p>
+        </div>
+    </div>
+
+    <div class="card hide">
+        <div class="card-content">
+            <p class="back">{{cards.back}}</p>
+        </div>
+    </div>
+    {{#with cards}}
+    <button class="btn btn-primary show-answer-btn">Show Answer</button>
+
+    <div id="difficulty" class="btn-group hide" role="group">
+        <button class="btn btn-primary" value="0">Again</button>
+        <button class="btn btn-primary" value="1">Hard</button>
+        <button class="btn btn-primary" value="2">Good</button>
+        <button class="btn btn-primary" value="50">Easy</button>
+    </div>
+    {{/with}}
+</template>

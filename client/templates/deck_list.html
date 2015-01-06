@@ -1,0 +1,25 @@
+<template name="deckList">
+
+    {{#each decks}}
+    <div class="card">
+            <div class="card-content">
+                <h3><a href="{{pathFor 'showCards' name }}">{{name}}</a></h3>
+            </div>
+    </div>
+    {{/each}}
+
+    <button id="create-btn" class="btn btn-primary">Create New Deck</button>
+
+    <form class="main form hide">
+        <div class="form-group">
+            <label class="control-label" for="front">Name for deck</label>
+            <div>
+                <input id="deck-name" type="text" name="deckName" placeholder="Name" class="form-control"/>
+            </div>
+            <br>
+            <input id="add-btn" type="submit" value="Add" class="btn btn-primary"/>
+            <button id="cancel-btn" class="btn btn-danger">Cancel</button>
+        </div>
+    </form>
+
+</template>
