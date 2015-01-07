@@ -1,6 +1,6 @@
 if (Cards.find().count() === 0) {
 
-    var today = moment();
+    var today = moment().toDate();;
 
     var javascriptId = Decks.insert({
         name: 'Javascript',

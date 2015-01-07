@@ -1,7 +1,7 @@
 Template.showCards.helpers({
     cards: function () {
         console.log(this);
-        var end = moment();
+        var end = moment().toDate();
 
         return Cards.findOne({
             deckName: this._id,
