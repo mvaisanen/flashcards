@@ -1,6 +1,8 @@
 <template name="layout">
     <div class="container">
         {{> header}}
+        {{> errors}}
+        {{> successes}}
         <div id="main" class="row-fluid">
             {{> yield}}
         </div>

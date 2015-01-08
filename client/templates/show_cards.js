@@ -1,12 +1,10 @@
 Template.showCards.helpers({
     cards: function () {
-        console.log(this);
-        var end = moment();
 
-        return Cards.findOne({
-            deckName: this._id,
-            due: {"$lt": end}
-        });
+        var end = moment().endOf('day').toDate();
+        console.log(end);
+
+        return Cards.findOne({deckId: this._id, due: {$lte: end}}, {sort: {due: -1}});
     }
 });
 
@@ -19,8 +17,7 @@ Template.showCards.events({
     },
     'click #difficulty button': function(event) {
         var incBy = parseInt(event.target.value);
-        console.log(incBy);
-        console.log(typeof incBy);
+
         var today = moment();
         var newDue = moment(today).add(incBy,'days').toDate();
         Cards.update(

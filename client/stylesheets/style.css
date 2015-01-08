@@ -109,7 +109,7 @@ body {
     100% {opacity: 0;}
 }
 
-.errors{
+.alerts {
     position: fixed;
     z-index: 10000;
     padding: 10px;

@@ -5,15 +5,21 @@ Template.addCards.helpers({
 });
 
 Template.addCards.events({
-    'submit form': function (event, template) {
+    'submit form': function (event) {
         event.preventDefault();
-        var deckNameVar = event.target.deckName.value;
+        var deckName = event.target.deckName.value;
+        var deckIdVar = Decks.findOne({name: deckName})._id;
         var frontVar = event.target.front.value;
+        $(event.target.front).val('');
         var backVar = event.target.back.value;
+        $(event.target.back).val('');
+        var today = moment().toDate();
         Cards.insert({
-            deckName: deckNameVar,
+            deckId: deckIdVar,
+            due: today,
             front: frontVar,
             back: backVar
         });
+        success("You added one new card.");
     }
 });

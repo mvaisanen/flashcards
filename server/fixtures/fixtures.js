@@ -1,47 +1,47 @@
 if (Cards.find().count() === 0) {
 
-    var today = moment();
+    var today = moment().toDate();
 
-    var javascriptId = Decks.insert({
+    var javascript = Decks.insert({
         name: 'Javascript',
         cardsCount: 3
     });
 
-    var meteorId = Decks.insert({
+    var meteor = Decks.insert({
         name: 'Meteor',
         cardsCount: 2
     });
 
     Cards.insert({
-        deckName: javascriptId,
+        deckId: javascript,
         due: today,
         front: 'What JS stands for?',
         back: 'JavaScript'
     });
 
     Cards.insert({
-        deckName: javascriptId,
+        deckId: javascript,
         due: today,
         front: 'var x = (10 > 5) ? true : false --> What is the value of x?',
         back: 'true'
     });
 
     Cards.insert({
-        deckName: javascriptId,
+        deckId: javascript,
         due: today,
         front: '"12" !== 12',
         back: 'true'
     });
 
     Cards.insert({
-        deckName: meteorId,
+        deckId: meteor,
         due: today,
         front: 'Meteor is cool?',
         back: 'true'
     });
 
     Cards.insert({
-        deckName: meteorId,
+        deckId: meteor,
         due: today,
         front: 'Meteor rules?',
         back: 'true'
