@@ -17,9 +17,11 @@ Template.addCards.events({
         Cards.insert({
             deckId: deckIdVar,
             due: today,
+            step: 0,
             front: frontVar,
             back: backVar
         });
         success("You added one new card.");
     }
 });
+

@@ -15,6 +15,8 @@ if (Cards.find().count() === 0) {
     Cards.insert({
         deckId: javascript,
         due: today,
+        step: 0,
+        delay: 0,
         front: 'What JS stands for?',
         back: 'JavaScript'
     });
@@ -22,6 +24,8 @@ if (Cards.find().count() === 0) {
     Cards.insert({
         deckId: javascript,
         due: today,
+        step: 1,
+        delay: 0,
         front: 'var x = (10 > 5) ? true : false --> What is the value of x?',
         back: 'true'
     });
@@ -29,6 +33,8 @@ if (Cards.find().count() === 0) {
     Cards.insert({
         deckId: javascript,
         due: today,
+        step: 2,
+        delay: 0,
         front: '"12" !== 12',
         back: 'true'
     });
@@ -36,6 +42,8 @@ if (Cards.find().count() === 0) {
     Cards.insert({
         deckId: meteor,
         due: today,
+        step: 3,
+        delay: 0,
         front: 'Meteor is cool?',
         back: 'true'
     });
@@ -43,6 +51,8 @@ if (Cards.find().count() === 0) {
     Cards.insert({
         deckId: meteor,
         due: today,
+        step: 4,
+        delay: 0,
         front: 'Meteor rules?',
         back: 'true'
     });

@@ -1,11 +1,26 @@
 Template.showCards.helpers({
     cards: function () {
-
-        var end = moment().endOf('day').toDate();
-        console.log(end);
-
+        var end = moment().toDate();
         return Cards.findOne({deckId: this._id, due: {$lte: end}}, {sort: {due: -1}});
-    }
+    },
+    hard: function() {
+        var step = Cards.findOne({_id: this._id}).step - 1;
+        if (step < 0) { step = 0; }
+        var days = Math.pow(2.5, step);
+        return Math.round(days);
+    },
+    good: function() {
+        var step = Cards.findOne({_id: this._id}).step + 1;
+        if (step < 0) { step = 0; }
+        var days = Math.pow(2.5, step);
+        return Math.round(days);
+    },
+    easy: function() {
+        var step = Cards.findOne({_id: this._id}).step + 2;
+        if (step < 0) { step = 0; }
+        var days = Math.pow(2.5, step);
+        return Math.round(days);
+    },
 });
 
 Template.showCards.events({
@@ -16,13 +31,21 @@ Template.showCards.events({
         $(event.target).hide();
     },
     'click #difficulty button': function(event) {
-        var incBy = parseInt(event.target.value);
-
+        var step = Cards.findOne({_id: this._id}).step;
+        var newStep = step + parseInt(event.target.value);
+        if (newStep < 0) { newStep = 0; }
+        var incBy = Math.pow(2.5, step);
         var today = moment();
-        var newDue = moment(today).add(incBy,'days').toDate();
+
+        if (event.target.id == 'again-btn') {
+            var newDue = moment(today).add(10, 'minutes').toDate()
+        } else {
+            var newDue = moment(today).add(incBy,'days').startOf('day').toDate();
+        }
+
         Cards.update(
             this._id, {
-                $set: {due: newDue}
+                $set: {due: newDue, step: newStep}
                 }
             );
     }

@@ -15,6 +15,22 @@ body {
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }
 
+.card {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
 .navbar {
     margin-bottom: 10px; }
 /* line 32, ../sass/style.scss */
@@ -40,11 +56,18 @@ body {
 .card:after {
     clear: both; }
     .card .card-content {
-        float: left; }
-        .card .card-content h3 {
+        float: left;
+        width: 100%; }
+        .card .card-content h2 {
             margin: 0;
             line-height: 1.4;
             font-size: 18px; }
+        .card .card-content h3 {
+            color: #337AB2;
+            margin: 0;
+            line-height: 1.4;
+            font-size: 14px;
+            font-weight: bold; }
             .card .card-content h3 a {
                 display: inline-block;
                 margin-right: 5px; }
@@ -55,6 +78,12 @@ body {
                 color: #aaaaaa; }
         .card .card-content p {
             margin: 0; }
+
+.card-info {
+    padding-right: 35px;
+    margin-right: 10px;
+    color: #bbb;
+}
 
 .dropdown-menu span {
     display: block;
@@ -129,4 +158,8 @@ body {
     clear: both;
     margin-bottom: 5px;
     pointer-events: auto;
+}
+
+label {
+    color: #337AB2;
 }
