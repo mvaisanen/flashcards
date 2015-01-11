@@ -1,6 +1,7 @@
 Template.showCards.helpers({
     cards: function () {
         var end = moment().toDate();
+        // Finding the next card to show by due date
         return Cards.findOne({deckId: this._id, due: {$lte: end}}, {sort: {due: -1}});
     },
     hard: function() {
@@ -26,27 +27,39 @@ Template.showCards.helpers({
 Template.showCards.events({
     // Show the answer
     'click .show-answer-btn': function (event) {
-        $(event.target).prev().removeClass('hide');
-        $(event.target).next().removeClass('hide');
-        $(event.target).hide();
+        $('#hidden-answer').toggleClass('hide');
+        $('#difficulty').toggleClass('hide');
+        $(event.target).toggle();
     },
     'click #difficulty button': function(event) {
+        $('#hidden-answer').toggleClass('hide');
+        $('#difficulty').toggleClass('hide');
+        $('.show-answer-btn').toggle();
+
         var step = Cards.findOne({_id: this._id}).step;
-        var newStep = step + parseInt(event.target.value);
+        var newStep = parseInt(step) + parseInt(event.target.value);
         if (newStep < 0) { newStep = 0; }
-        var incBy = Math.pow(2.5, step);
+        var incBy = Math.pow(2.5, newStep);
         var today = moment();
 
         if (event.target.id == 'again-btn') {
-            var newDue = moment(today).add(10, 'minutes').toDate()
+            var newDue = moment(today).add(10, 'minutes').toDate();
         } else {
-            var newDue = moment(today).add(incBy,'days').startOf('day').toDate();
+            var newDue = moment(today).add(incBy,'days').toDate();
+            console.log(newDue);
         }
 
         Cards.update(
             this._id, {
                 $set: {due: newDue, step: newStep}
-                }
-            );
-    }
-});
+            }
+        );
+
+        if (isNaN(newStep)) {
+            console.log("ERROR");
+        } else {
+            console.log("Success!");
+        }
+
+        }
+    });

@@ -68,10 +68,10 @@ body {
             line-height: 1.4;
             font-size: 14px;
             font-weight: bold; }
-            .card .card-content h3 a {
+            .card .card-content h2 a {
                 display: inline-block;
                 margin-right: 5px; }
-            .card .card-content h3 span {
+            .card .card-content h2 span {
                 font-weight: normal;
                 font-size: 14px;
                 display: inline-block;

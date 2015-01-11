@@ -3,7 +3,9 @@
     {{#each decks}}
     <div class="card">
             <div class="card-content">
-                <h2><a href="{{pathFor 'showCards' name }}">{{name}}</a></h2>
+                <h2>{{name}}<span class="pull-right edit-btn"><a href="">Edit</a></span><span class="bottom-right {{_id}}">Total {{cardsCount}} cards</span></h2>
+                <p><a href="{{pathFor 'showCards' name }}">{{cardsDue}} cards to study, yeah buddy!</a></p>
+                <div class="hide {{_id}}">{{> deleteDeckButton }}</div>
             </div>
     </div>
     {{/each}}

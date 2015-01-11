@@ -1,15 +1,18 @@
 <template name="showCards">
+
     <div class="card">
         <div class="card-content">
             <p class="front">{{cards.front}}</p>
         </div>
     </div>
 
-    <div class="card hide">
+    <div id="hidden-answer" class="card hide">
         <div class="card-content">
             <p class="back">{{cards.back}}</p>
+            {{> deleteCardButton cards}}
         </div>
     </div>
+
     {{#with cards}}
     <button class="btn btn-primary show-answer-btn">Show Answer</button>
 

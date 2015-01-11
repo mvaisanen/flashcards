@@ -5,11 +5,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 mizzao:bootstrap-3
 underscore
-ian:accounts-ui-bootstrap-3
 accounts-password
 iron:router
 momentjs:moment
+sacha:spin
+ian:accounts-ui-bootstrap-3
