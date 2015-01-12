@@ -4,7 +4,9 @@ Template.browseCardItem.events({
 
         var newProperties = {
             front: event.target.front.value,
-            back: event.target.back.value
+            back: event.target.back.value,
+            frontIsCode: $('input[name="frontIsCode"]:checked').length > 0,
+            backIsCode: $('input[name="backIsCode"]:checked').length > 0
         };
 
         Cards.update(

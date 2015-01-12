@@ -13,14 +13,24 @@
             <div>
                 <textarea name="front" class="form-control">{{front}}</textarea>
             </div>
+            <div class="checkbox">
+                <label>
+                    <input name="frontIsCode" type="checkbox" checked="{{frontIsCode}}" /> Highlight syntax
+                </label>
+            </div>
             </div>
             <div class="form-group">
             <h3>Back</h3>
                 <div>
                     <textarea name="back" class="form-control">{{back}}</textarea>
                 </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="backIsCode" type="checkbox" checked="{{backIsCode}}"/> Highlight syntax
+                    </label>
+                </div>
             </div>
-            <input type="submit" value="Edit" class="btn btn-danger"/>
+            <input type="submit" value="Save" class="btn btn-danger"/>
         </form>
     </div>
 </template>
