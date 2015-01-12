@@ -29,7 +29,7 @@ Template.showCards.events({
     'click .show-answer-btn': function (event) {
         $('#hidden-answer').toggleClass('hide');
         $('#difficulty').toggleClass('hide');
-        $(event.target).toggle();
+        $(event.currentTarget).toggle();
     },
     'click #difficulty button': function(event) {
         $('#hidden-answer').toggleClass('hide');
@@ -37,12 +37,12 @@ Template.showCards.events({
         $('.show-answer-btn').toggle();
 
         var step = Cards.findOne({_id: this._id}).step;
-        var newStep = parseInt(step) + parseInt(event.target.value);
+        var newStep = parseInt(step) + parseInt(event.currentTarget.value);
         if (newStep < 0) { newStep = 0; }
         var incBy = Math.pow(2.5, newStep);
         var today = moment();
 
-        if (event.target.id == 'again-btn') {
+        if (event.currentTarget.id == 'again-btn') {
             var newDue = moment(today).add(10, 'minutes').toDate();
         } else {
             var newDue = moment(today).add(incBy,'days').toDate();

@@ -3,7 +3,13 @@
     {{#each decks}}
     <div class="card">
             <div class="card-content">
-                <h2>{{name}}<span class="pull-right edit-btn"><a href="">Edit</a></span><span class="bottom-right {{_id}}">Total {{cardsCount}} cards</span></h2>
+                <h2 class="{{_id}}">{{name}}</h2>
+                <span class="top-right edit-btn"><a href="">Edit</a></span>
+                <span class="bottom-right {{_id}}">Total {{cardsCount}} cards</span>
+                <form class="form-inline hide edit-deckname {{_id}}">
+                    <input type="text" name="deckName" value="{{name}}" class="form-control"/>
+                    <input type="submit" value="Save" class="btn btn-primary"/>
+                </form>
                 <p><a href="{{pathFor 'showCards' name }}">{{cardsDue}} cards to study, yeah buddy!</a></p>
                 <div class="hide {{_id}}">{{> deleteDeckButton }}</div>
             </div>
@@ -12,7 +18,7 @@
 
     <button id="create-btn" class="btn btn-primary">Create New Deck</button>
 
-    <form class="main form hide">
+    <form class="main form hide add-deck">
         <div class="form-group">
             <label class="control-label" for="front">Name for deck</label>
             <div>

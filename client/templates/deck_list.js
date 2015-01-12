@@ -20,7 +20,7 @@ Template.deckList.events({
         $('form').addClass('hide');
         $('#create-btn').show();
     },
-    'submit form': function(event) {
+    'submit .add-deck': function(event) {
         event.preventDefault();
         var currentUserId = Meteor.userId();
         var deckNameVar = event.target.deckName.value;
@@ -34,6 +34,13 @@ Template.deckList.events({
     'click .edit-btn': function (event, template) {
         id = this._id;
         console.log(id);
+        template.$('.'+id).toggleClass('hide');
+    },
+    'submit .edit-deckname': function (event, template) {
+        event.preventDefault();
+        var newDeckName = event.target.deckName.value;
+        console.log(newDeckName);
+        Decks.update(this._id, {$set: {name: newDeckName}});
         template.$('.'+id).toggleClass('hide');
     }
 });
