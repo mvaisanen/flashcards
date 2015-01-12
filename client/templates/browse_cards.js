@@ -34,7 +34,6 @@ Template.browse.events({
     },
     'change form': function(event, template) {
         Session.set('deckName', template.find('select').value);
-        console.log(Session.get('deckName'));
     }
 
 });

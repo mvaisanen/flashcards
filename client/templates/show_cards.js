@@ -46,7 +46,6 @@ Template.showCards.events({
             var newDue = moment(today).add(10, 'minutes').toDate();
         } else {
             var newDue = moment(today).add(incBy,'days').toDate();
-            console.log(newDue);
         }
 
         Cards.update(
@@ -54,12 +53,5 @@ Template.showCards.events({
                 $set: {due: newDue, step: newStep}
             }
         );
-
-        if (isNaN(newStep)) {
-            console.log("ERROR");
-        } else {
-            console.log("Success!");
-        }
-
-        }
-    });
+    }
+});
