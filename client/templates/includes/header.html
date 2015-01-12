@@ -1,5 +1,4 @@
 <template name="header">
-
     <nav class="card">
         <div class="navbar-header">
             <p class="navbar-brand">Flashcards for Hackers</p>
@@ -7,10 +6,10 @@
         {{#if currentUser}}
             <div class="card-content">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="{{pathFor 'deckList'}}">Decks</a></li>
-                    <li role="presentation"><a href="{{pathFor 'addCards'}}">Add</a></li>
-                    <li role="presentation"><a href="{{pathFor 'browse'}}">Browse</a></li>
-                    <li role="presentation" class="pull-right"><a href="{{pathFor 'loginPage'}}">Logout</a></li>
+                    <li role="presentation" class="{{#if isCurrentPage 'decks'}}active{{/if}} {{#if isCurrentPage ''}}active{{/if}}"><a href="{{pathFor 'deckList'}}">Decks</a></li>
+                    <li role="presentation" class="{{#if isCurrentPage 'add'}}active{{/if}}"><a href="{{pathFor 'addCards'}}">Add</a></li>
+                    <li role="presentation" class="{{#if isCurrentPage 'browse'}}active{{/if}}"><a href="{{pathFor 'browse'}}">Browse</a></li>
+                    <li role="presentation" id="logout" class="pull-right"><a href="{{pathFor 'loginPage'}}">Logout</a></li>
                 </ul>
             </div>
         {{/if}}

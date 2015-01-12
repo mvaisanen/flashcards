@@ -1,0 +1,26 @@
+<template name="browse">
+
+    <form class="main form">
+        <div class="form-group">
+            <label class="control-label" for="deck">Deck</label>
+            <select name="deckName" class="form-control">
+                {{#each decks}}
+                    <option value="{{name}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </form>
+
+    {{#each cards}}
+        <div class="card">
+            <div class="pull-right top-right">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </div>
+            <div class="card-content">
+                {{> browseCardItem}}
+            </div>
+                <span class="pull-right top-right card-info">{{due}}</span>
+            {{> deleteCardButton}}
+        </div>
+   {{/each}}
+</template>

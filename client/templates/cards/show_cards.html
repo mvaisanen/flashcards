@@ -1,0 +1,54 @@
+<template name="showCards">
+
+    <div class="card">
+        <p class="front">
+            {{#if cards.frontIsCode}}
+{{#markdown}}
+    {{cards.front}}
+{{/markdown}}
+            {{else}}
+                {{cards.front}}
+            {{/if}}
+        </p>
+    </div>
+
+    <div id="hidden-answer" class="card hide">
+        <p class="back">
+            {{#if cards.backIsCode}}
+{{#markdown}}
+    {{cards.back}}
+{{/markdown}}
+            {{else}}
+                {{cards.back}}
+            {{/if}}
+        </p>
+        {{> deleteCardButton cards}}
+    </div>
+
+    {{#with cards}}
+    <button class="btn btn-primary show-answer-btn">Show Answer</button>
+
+    <div id="difficulty" class="btn-group hide" role="group">
+        <button id="again-btn" class="btn btn-primary" value="-1">
+            Again
+            <br>
+            <small>10 min</small>
+        </button>
+        <button class="btn btn-primary" value="-1">
+            Hard
+            <br>
+            <small>{{hard}} days</small>
+        </button>
+        <button class="btn btn-primary" value="1">
+            Good
+            <br>
+            <small>{{good}} days</small>
+        </button>
+        <button class="btn btn-primary" value="2">
+            Easy
+            <br>
+            <small>{{easy}} days</small>
+        </button>
+    </div>
+    {{/with}}
+</template>
