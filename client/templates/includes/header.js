@@ -1,6 +1,10 @@
 Template.header.helpers({
     isCurrentPage: function(pageName){
-        return Router.current().route.path().slice(1) == pageName
+      	var pathArr = window.location.pathname.split("/");
+      	var firstLevelPath = pathArr[1];
+        console.log(pageName);
+        console.log(firstLevelPath);
+        return firstLevelPath == pageName
     }
 });
 
@@ -10,3 +14,17 @@ Template.header.events({
         Meteor.logout();
     }
 });
+
+
+// var str = "path/deck/jea"
+// undefined
+// str
+// "path/deck/jea"
+// str.split("/")
+// ["path", "deck", "jea"]
+// str
+// "path/deck/jea"
+// str = str.split("/")[1]
+// "deck"
+// str
+// "deck"
