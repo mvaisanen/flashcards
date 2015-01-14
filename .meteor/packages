@@ -13,3 +13,5 @@ iron:router
 momentjs:moment
 sacha:spin
 ian:accounts-ui-bootstrap-3
+markdown
+simple:highlight.js
