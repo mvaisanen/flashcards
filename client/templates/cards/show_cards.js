@@ -53,5 +53,12 @@ Template.showCards.events({
                 $set: {due: newDue, step: newStep}
             }
         );
+        // if no cards to study, redirect to home
+        var end = moment().toDate();
+        var deckId = this.deckId;
+        var cardsTotal = Cards.find({deckId: deckId, due: {$lte: end}}).count();
+        if (!cardsTotal) {
+        Router.go('/');
+    }
     }
 });

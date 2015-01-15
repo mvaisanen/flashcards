@@ -10,7 +10,11 @@
                     <input type="text" name="deckName" value="{{name}}" class="form-control"/>
                     <input type="submit" value="Save" class="btn btn-primary"/>
                 </form>
-                <p><a href="{{pathFor 'showCards' name }}">{{cardsDue}} cards to study, yeah buddy!</a></p>
+                {{#if cardsDue}}
+                    <p><a href="{{pathFor 'showCards' name }}">{{cardsDue}} cards to study, yeah buddy!</a></p>
+                {{else}}
+                    <p>No cards to study right now.</p>
+                {{/if}}
                 <div class="hide {{_id}}">{{> deleteDeckButton }}</div>
             </div>
     </div>

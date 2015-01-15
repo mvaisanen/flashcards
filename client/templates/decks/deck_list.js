@@ -12,7 +12,7 @@ Template.deckList.helpers({
 
 Template.deckList.events({
     'click #create-btn': function(event) {
-        $('form').removeClass('hide');
+        $('.add-deck').removeClass('hide');
         $(event.target).hide();
     },
     'click #cancel-btn': function (event) {
