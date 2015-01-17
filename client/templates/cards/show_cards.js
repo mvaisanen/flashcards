@@ -2,6 +2,7 @@ Template.showCards.helpers({
     cards: function () {
         var end = moment().toDate();
         // Finding the next card to show by due date
+
         return Cards.findOne({deckId: this._id, due: {$lte: end}}, {sort: {due: -1}});
     },
     hard: function() {

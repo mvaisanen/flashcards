@@ -1,6 +1,12 @@
 body {
     background: #eee;
-    color: #666666; }
+    color: #666666;}
+
+.status-bar-background {
+    height:20px;
+    width:100%;
+    clear:both;
+}
 
 .grid-block, .main, .card {
     background: #fff;
