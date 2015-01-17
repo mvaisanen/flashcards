@@ -4,7 +4,9 @@
         <p class="front">
             {{#if cards.frontIsCode}}
 {{#markdown}}
-    {{cards.front}}
+```
+{{cards.front}}
+```
 {{/markdown}}
             {{else}}
                 {{cards.front}}
@@ -16,7 +18,9 @@
         <p class="back">
             {{#if cards.backIsCode}}
 {{#markdown}}
-    {{cards.back}}
+```
+{{cards.back}}
+```
 {{/markdown}}
             {{else}}
                 {{cards.back}}
